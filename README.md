@@ -1,0 +1,11 @@
+Both programs teach a tiny AI to invent human-sounding names — but they serve different purposes.
+
+TinyGPT (the original) is a teaching tool. Written by AI researcher Andrej Karpathy, it's a stripped-down, self-contained demonstration of how a GPT (the same type of AI behind ChatGPT) works from scratch, in about 100 lines of plain Python. It downloads a list of 32,000 real names, studies the patterns in them, and then generates new made-up names that sound plausible. Think of it as a classroom skeleton — designed to be as readable and minimal as possible.
+TinyGPT_2 (the "Audited Edition") takes that same core engine and wraps it in a rigorous quality-control framework. The key additions are:
+
+Honest testing: The original trains and tests on essentially the same pool of names — a bit like studying from the answer key. The audited version properly splits the data into separate training, validation, and test groups so you can tell if the model is genuinely learning or just memorizing.
+Memorization detection: It flags when a generated name is one the model literally saw during training, rather than something it invented.
+Detailed reporting: Every stage is timed and logged — data loading, training progress, final accuracy scores — and everything is saved to a log file.
+Data hygiene: It removes duplicate names before training and checks for data quality issues.
+
+In short: TinyGPT is a beautiful, minimal explanation of how GPT works. TinyGPT_2 is what you'd need if you actually wanted to trust the results — it adds the rigor a real experiment or audit would require.
