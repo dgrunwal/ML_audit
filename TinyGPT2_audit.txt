@@ -1,0 +1,66 @@
+=== TinyGPT Audited Run | 2026-05-04T13:41:34.751304 ===
+Output logging active -> model_output.log
+
+==================================================
+STAGE 1 — DATA COLLECTION
+==================================================
+  Total documents : 32,033
+  Duplicate names : 2539
+  Empty lines     : 0
+  Min name length : 2
+  Max name length : 15
+  Avg name length : 6.12
+  [TIME]  Data collection time : 0.070s
+  Deduplication: removed 2539 duplicate names (29,494 unique remain)
+
+==================================================
+STAGE 2 — TRAIN / VAL / TEST SPLIT
+==================================================
+  Train docs : 23,595  (80.0%)
+  Val   docs : 2,949   (10.0%)
+  Test  docs : 2,950   (10.0%)
+  Train/Val  overlap : 0  (must be 0)
+  Train/Test overlap : 0  (must be 0)
+  Val/Test   overlap : 0  (must be 0)
+  [OK] Split sanctity verified — zero overlap
+  [TIME]  Split time : 0.0491s
+
+==================================================
+STAGE 3 — TOKENIZER
+==================================================
+  Vocab size : 27 (fit on train only)
+  Characters : abcdefghijklmnopqrstuvwxyz
+  BOS token  : 26
+  OOV chars in val  : none
+  OOV chars in test : none
+[OK] Autograd engine defined.
+
+==================================================
+STAGE 5 — MODEL DEFINITION
+==================================================
+  Architecture   : GPT (n_layer=1, n_embd=16, n_head=4)
+  Num parameters : 4,192
+  Block size     : 16
+  Vocab size     : 27
+  [TIME]  Model init time : 0.011s
+[OK] Evaluation helper defined.
+
+==================================================
+STAGE 6 — TRAINING
+==================================================
+  Steps        : 1000
+  Val interval : every 100 steps
+  LR           : 0.01 (linear decay)
+
+  step  100/1000 | train_loss=2.6600 | val_loss=2.5799 | gap=-0.0801 | elapsed=38.9s | val_eval=19.20s
+  step  200/1000 | train_loss=2.8964 | val_loss=2.5424 | gap=-0.3540 | elapsed=90.2s | val_eval=23.57s
+  step  300/1000 | train_loss=2.5867 | val_loss=2.4478 | gap=-0.1388 | elapsed=142.3s | val_eval=26.70s
+  step  400/1000 | train_loss=2.2761 | val_loss=2.4058 | gap=+0.1297 | elapsed=195.3s | val_eval=33.30s
+  step  500/1000 | train_loss=2.9749 | val_loss=2.3945 | gap=-0.5803 | elapsed=262.9s | val_eval=35.76s
+  step  600/1000 | train_loss=2.5272 | val_loss=2.3698 | gap=-0.1574 | elapsed=314.8s | val_eval=28.51s
+  step  700/1000 | train_loss=2.5360 | val_loss=2.3360 | gap=-0.2001 | elapsed=382.0s | val_eval=31.85s
+  step  800/1000 | train_loss=1.9815 | val_loss=2.3375 | gap=+0.3560 | elapsed=435.2s | val_eval=27.17s
+  step  900/1000 | train_loss=2.7137 | val_loss=2.3346 | gap=-0.3791 | elapsed=485.2s | val_eval=24.95s
+  step 1000/1000 | train_loss=2.4372 | val_loss=2.3282 | gap=-0.1090 | elapsed=543.9s | val_eval=31.52s
+
+  [TIME]  Total training time : 543.9s  (543.9ms/step)
